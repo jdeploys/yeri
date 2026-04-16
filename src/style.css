@@ -232,7 +232,7 @@ body {
     position: absolute;
     left: 28px;
     right: 28px;
-    top: calc(var(--sat) + 100px);
+    top: calc(var(--sat) + 80px);
     text-align: center;
 }
 
@@ -254,7 +254,7 @@ body {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: calc(var(--sat) + 190px);
+    top: calc(var(--sat) + 165px);
     width: auto;
     display: flex;
     flex-direction: row;
@@ -347,7 +347,7 @@ body {
     position: absolute;
     left: 28px;
     right: 28px;
-    top: calc(var(--sat) + 100px);
+    top: calc(var(--sat) + 80px);
     text-align: center;
 }
 
@@ -369,7 +369,7 @@ body {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: calc(var(--sat) + 190px);
+    top: calc(var(--sat) + 165px);
     width: auto;
     display: flex;
     flex-direction: row;
@@ -497,7 +497,7 @@ body {
     position: absolute;
     left: 28px;
     right: 28px;
-    top: calc(var(--sat) + 184px);
+    top: calc(var(--sat) + 80px);
     text-align: center;
     opacity: 0;
     z-index: 5;
@@ -561,7 +561,7 @@ body {
     position: absolute;
     left: 28px;
     right: 28px;
-    top: calc(var(--sat) + 184px);
+    top: calc(var(--sat) + 80px);
     text-align: center;
 }
 
@@ -582,7 +582,7 @@ body {
 .game-start-image {
     position: absolute;
     left: 0;
-    top: 280px;
+    top: 260px;
     width: 100%;
     height: 380px;
     display: flex;
@@ -638,7 +638,7 @@ body {
     position: absolute;
     left: 28px;
     right: 28px;
-    top: calc(var(--sat) + 167px);
+    top: calc(var(--sat) + 80px);
     text-align: center;
 }
 
@@ -652,7 +652,7 @@ body {
 .game-bottles-container {
     position: absolute;
     left: 0;
-    top: 280px;
+    top: 260px;
     width: 100%;
     height: 380px;
     display: flex;

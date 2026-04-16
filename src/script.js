@@ -116,7 +116,7 @@ function startPracticeGame() {
     // 타이틀 초기화
     const practiceTitle = document.querySelector('.practice-title');
     practiceTitle.style.left = '28px';
-    practiceTitle.style.top = 'calc(var(--sat) + 100px)'; // 원래 위치로
+    practiceTitle.style.top = 'calc(var(--sat) + 80px)'; // 원래 위치로
     practiceTitle.innerHTML = `
         <div class="line1">5초 안에</div>
         <div class="line2">사진을 빠르게 클릭해보세요</div>
@@ -188,13 +188,13 @@ function endPracticeGame() {
             // 타이틀 위치 이동
             practiceTitle.style.transition = 'top 0.5s ease-out';
             practiceTitle.style.left = '28px';
-            practiceTitle.style.top = 'calc(var(--sat) + 167px)';
+            practiceTitle.style.top = 'calc(var(--sat) + 80px)';
             
             // 음료 위치 이동 (중앙 정렬, left는 즉시 변경)
             practiceBottles.style.left = '50%';
             practiceBottles.style.transform = 'translateX(-50%)';
             practiceBottles.style.transition = 'top 0.5s ease-out';
-            practiceBottles.style.top = '296px';
+            practiceBottles.style.top = '260px';
             
             practiceTitle.innerHTML = `
                 <div class="line1">성공했어요! 👏</div>
@@ -370,3 +370,24 @@ function endRealGame() {
     }
     // 결과 화면으로 이동
 }
+
+// iOS Safari/WebView :active 활성화 + 터치 바운스 피드백
+document.addEventListener('touchstart', function(){}, {passive: true});
+
+document.querySelectorAll('.game-bottles, .practice-bottles-group, .real-bottles-group').forEach(function(el) {
+    var img = el.querySelector('img');
+    if (!img) return;
+
+    el.addEventListener('touchstart', function() {
+        img.style.transition = 'transform 0.05s ease';
+        img.style.transform = 'scale(0.95)';
+    }, {passive: true});
+
+    el.addEventListener('touchend', function() {
+        setTimeout(function() { img.style.transform = ''; }, 80);
+    }, {passive: true});
+
+    el.addEventListener('touchcancel', function() {
+        img.style.transform = '';
+    }, {passive: true});
+});
