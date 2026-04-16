@@ -127,7 +127,7 @@ function startPracticeGame() {
     const practiceBottles = document.querySelector('.practice-bottles');
     practiceBottles.style.left = '0';
     practiceBottles.style.transform = 'none';
-    practiceBottles.style.top = '330px';
+    practiceBottles.style.top = '260px';
     
     // stats 보이기
     document.querySelector('.practice-stats').style.opacity = '1';
@@ -282,7 +282,7 @@ function startRealGame() {
     const realBottles = document.querySelector('.real-bottles');
     realBottles.style.left = '50%';
     realBottles.style.transform = 'translateX(-50%) scale(1)';
-    realBottles.style.top = '330px';
+    realBottles.style.top = '260px';
     realBottles.style.transition = 'all 0.3s ease-out';
     
     realInterval = setInterval(() => {
