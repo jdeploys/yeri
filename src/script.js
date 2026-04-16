@@ -116,7 +116,7 @@ function startPracticeGame() {
     // 타이틀 초기화
     const practiceTitle = document.querySelector('.practice-title');
     practiceTitle.style.left = '28px';
-    practiceTitle.style.top = 'calc(var(--sat) + 80px)'; // 원래 위치로
+    practiceTitle.style.top = 'calc(var(--sat) + 130px)'; // 원래 위치로
     practiceTitle.innerHTML = `
         <div class="line1">5초 안에</div>
         <div class="line2">사진을 빠르게 클릭해보세요</div>
@@ -127,7 +127,7 @@ function startPracticeGame() {
     const practiceBottles = document.querySelector('.practice-bottles');
     practiceBottles.style.left = '0';
     practiceBottles.style.transform = 'none';
-    practiceBottles.style.top = 'calc(var(--sat) + 280px)';
+    practiceBottles.style.top = 'calc(var(--sat) + 330px)';
     
     // stats 보이기
     document.querySelector('.practice-stats').style.opacity = '1';
@@ -188,7 +188,7 @@ function endPracticeGame() {
             // 타이틀 위치 이동
             practiceTitle.style.transition = 'top 0.5s ease-out';
             practiceTitle.style.left = '28px';
-            practiceTitle.style.top = 'calc(var(--sat) + 80px)';
+            practiceTitle.style.top = 'calc(var(--sat) + 130px)';
             
             // 음료 위치 이동 (중앙 정렬, left는 즉시 변경)
             practiceBottles.style.left = '50%';
@@ -282,7 +282,7 @@ function startRealGame() {
     const realBottles = document.querySelector('.real-bottles');
     realBottles.style.left = '50%';
     realBottles.style.transform = 'translateX(-50%) scale(1)';
-    realBottles.style.top = 'calc(var(--sat) + 280px)';
+    realBottles.style.top = 'calc(var(--sat) + 330px)';
     realBottles.style.transition = 'all 0.3s ease-out';
     
     realInterval = setInterval(() => {

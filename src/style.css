@@ -232,7 +232,7 @@ body {
     position: absolute;
     left: 28px;
     right: 28px;
-    top: calc(var(--sat) + 80px);
+    top: calc(var(--sat) + 130px);
     text-align: center;
 }
 
@@ -254,7 +254,7 @@ body {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: calc(var(--sat) + 165px);
+    top: calc(var(--sat) + 215px);
     width: auto;
     display: flex;
     flex-direction: row;
@@ -296,7 +296,7 @@ body {
 .practice-bottles {
     position: absolute;
     left: 0;
-    top: calc(var(--sat) + 280px);
+    top: calc(var(--sat) + 330px);
     width: 100%;
     height: 380px;
     display: flex;
@@ -347,7 +347,7 @@ body {
     position: absolute;
     left: 28px;
     right: 28px;
-    top: calc(var(--sat) + 80px);
+    top: calc(var(--sat) + 130px);
     text-align: center;
 }
 
@@ -369,7 +369,7 @@ body {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: calc(var(--sat) + 165px);
+    top: calc(var(--sat) + 215px);
     width: auto;
     display: flex;
     flex-direction: row;
@@ -379,7 +379,7 @@ body {
 .real-bottles {
     position: absolute;
     left: 0;
-    top: calc(var(--sat) + 280px);
+    top: calc(var(--sat) + 330px);
     width: 100%;
     height: 380px;
     display: flex;
@@ -497,7 +497,7 @@ body {
     position: absolute;
     left: 28px;
     right: 28px;
-    top: calc(var(--sat) + 80px);
+    top: calc(var(--sat) + 130px);
     text-align: center;
     opacity: 0;
     z-index: 5;
@@ -561,7 +561,7 @@ body {
     position: absolute;
     left: 28px;
     right: 28px;
-    top: calc(var(--sat) + 80px);
+    top: calc(var(--sat) + 130px);
     text-align: center;
 }
 
@@ -638,7 +638,7 @@ body {
     position: absolute;
     left: 28px;
     right: 28px;
-    top: calc(var(--sat) + 80px);
+    top: calc(var(--sat) + 130px);
     text-align: center;
 }
 
