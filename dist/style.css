@@ -102,7 +102,7 @@ body {
 .main-image {
     position: absolute;
     left: 0;
-    top: 280px;
+    top: 260px;
     width: 100%;
     height: 380px;
     display: flex;
@@ -263,8 +263,8 @@ body {
 
 .stat-box {
     background: linear-gradient(135deg,
-        rgba(255, 200, 120, 0.4) 0%,
-        rgba(255, 170, 100, 0.3) 100%);
+    rgba(255, 200, 120, 0.4) 0%,
+    rgba(255, 170, 100, 0.3) 100%);
     border-radius: 16px;
     padding: 20px;
     display: flex;
@@ -438,9 +438,9 @@ body {
     height: 100%;
     width: 0%;
     background: linear-gradient(90deg,
-        #2d23e4 0%,
-        #4a3dff 50%,
-        #6b5eff 100%);
+    #2d23e4 0%,
+    #4a3dff 50%,
+    #6b5eff 100%);
     border-radius: 20px;
     transition: width 0.3s ease-out;
     box-shadow: 0 2px 8px rgba(45, 35, 228, 0.4);
