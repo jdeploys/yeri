@@ -127,7 +127,7 @@ function startPracticeGame() {
     const practiceBottles = document.querySelector('.practice-bottles');
     practiceBottles.style.left = '0';
     practiceBottles.style.transform = 'none';
-    practiceBottles.style.top = '260px';
+    practiceBottles.style.top = 'calc(var(--sat) + 280px)';
     
     // stats 보이기
     document.querySelector('.practice-stats').style.opacity = '1';
@@ -194,7 +194,7 @@ function endPracticeGame() {
             practiceBottles.style.left = '50%';
             practiceBottles.style.transform = 'translateX(-50%)';
             practiceBottles.style.transition = 'top 0.5s ease-out';
-            practiceBottles.style.top = '260px';
+            practiceBottles.style.top = '260px'; // 성공 화면: stats 없으므로 첫 페이지와 동일
             
             practiceTitle.innerHTML = `
                 <div class="line1">성공했어요! 👏</div>
@@ -282,7 +282,7 @@ function startRealGame() {
     const realBottles = document.querySelector('.real-bottles');
     realBottles.style.left = '50%';
     realBottles.style.transform = 'translateX(-50%) scale(1)';
-    realBottles.style.top = '260px';
+    realBottles.style.top = 'calc(var(--sat) + 280px)';
     realBottles.style.transition = 'all 0.3s ease-out';
     
     realInterval = setInterval(() => {
