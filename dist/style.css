@@ -1,0 +1,683 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+    --sat: env(safe-area-inset-top, 0px);
+    --sab: env(safe-area-inset-bottom, 0px);
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow: hidden;
+    background: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    min-height: 100dvh;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+    touch-action: manipulation;
+}
+
+.container {
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    background: #ffa659;
+    position: relative;
+    overflow: hidden;
+}
+
+/* 배경 그라데이션 */
+.background-image {
+    position: absolute;
+    left: -176px;
+    top: -262px;
+    width: 888px;
+    height: 1332px;
+    background-image: url('https://s3cross-static-design.s3.ap-northeast-2.amazonaws.com/App_resource/shop+tf/click+game/bg_mymind-XUlsF9LYeVk-unsplash.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 1;
+}
+
+/* 컨텐츠 영역 */
+.content {
+    position: absolute;
+    left: 28px;
+    right: 28px;
+    top: calc(var(--sat) + 80px);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+    z-index: 10;
+}
+
+/* 배지 */
+.badge {
+    background: #0b084a;
+    color: white;
+    padding: 10px 12px;
+    border-radius: 99px;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1.5;
+}
+
+/* 텍스트 영역 */
+.text-area {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    text-align: center;
+    width: 100%;
+}
+
+.title {
+    font-size: 23px;
+    font-weight: 700;
+    color: #000;
+    line-height: 1.5;
+}
+
+.period {
+    font-size: 15px;
+    font-weight: 500;
+    color: #000;
+    line-height: 1.5;
+}
+
+/* 메인 이미지 */
+.main-image {
+    position: absolute;
+    left: 0;
+    top: 280px;
+    width: 100%;
+    height: 380px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.bottles {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    gap: 0;
+    padding: 0 20px;
+}
+
+.bottle {
+    width: 75px;
+    height: 300px;
+    background-image: url('https://s3cross-static-design.s3.ap-northeast-2.amazonaws.com/App_resource/shop+tf/click+game/cut_image_single.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    animation: float 2s ease-in-out infinite;
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.15));
+}
+
+.bottle:nth-child(1) { animation-delay: 0s; }
+.bottle:nth-child(2) { animation-delay: 0.2s; }
+.bottle:nth-child(3) { animation-delay: 0.4s; }
+.bottle:nth-child(4) { animation-delay: 0.6s; }
+
+/* 두 번째 화면용 통합 이미지 */
+.bottles-combined {
+    width: 100%;
+    height: 100%;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.bottles-combined img {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+/* 하단 버튼 영역 */
+.bottom {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding-bottom: var(--sab);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 100;
+}
+
+.button-container {
+    width: 100%;
+    padding: 16px;
+}
+
+.cta-button {
+    width: 100%;
+    height: 56px;
+    background: #2d23e4;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+.cta-button:hover {
+    background: #1f18b8;
+    transform: scale(1.02);
+}
+
+.cta-button:active {
+    transform: scale(0.98);
+}
+
+/* 비활성 버튼 스타일 */
+.cta-button.disabled {
+    pointer-events: none;
+    cursor: default;
+}
+
+.cta-button.disabled:active {
+    transform: none;
+}
+
+/* 연습게임 화면 */
+.practice-game-screen {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 30;
+    opacity: 0;
+}
+
+.practice-game-screen.show {
+    display: block;
+    opacity: 1;
+}
+
+.practice-title {
+    position: absolute;
+    left: 28px;
+    right: 28px;
+    top: calc(var(--sat) + 100px);
+    text-align: center;
+}
+
+.practice-title .line1 {
+    font-size: 23px;
+    font-weight: 700;
+    color: #000;
+    line-height: 1.5;
+}
+
+.practice-title .line2 {
+    font-size: 23px;
+    font-weight: 700;
+    color: #000;
+    line-height: 1.5;
+}
+
+.practice-stats {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: calc(var(--sat) + 190px);
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
+
+.stat-box {
+    background: linear-gradient(135deg,
+        rgba(255, 200, 120, 0.4) 0%,
+        rgba(255, 170, 100, 0.3) 100%);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    border: 1.5px solid rgba(255, 200, 120, 0.5);
+    width: 150px;
+    height: 100px;
+}
+
+.stat-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.65);
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+}
+
+.stat-value {
+    font-size: 24px;
+    font-weight: 900;
+    color: #2d23e4;
+    letter-spacing: -0.03em;
+    font-variant-numeric: tabular-nums;
+}
+
+.practice-bottles {
+    position: absolute;
+    left: 0;
+    top: 330px;
+    width: 100%;
+    height: 380px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.practice-bottles-group {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.practice-bottles-group img {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.1s ease;
+}
+
+.practice-bottles-group:active img {
+    transform: scale(0.95);
+}
+
+/* 실제 게임 화면 */
+.real-game-screen {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 30;
+    opacity: 0;
+}
+
+.real-game-screen.show {
+    display: block;
+    opacity: 1;
+}
+
+.real-title {
+    position: absolute;
+    left: 28px;
+    right: 28px;
+    top: calc(var(--sat) + 100px);
+    text-align: center;
+}
+
+.real-title .line1 {
+    font-size: 23px;
+    font-weight: 700;
+    color: #000;
+    line-height: 1.5;
+}
+
+.real-title .line2 {
+    font-size: 23px;
+    font-weight: 700;
+    color: #000;
+    line-height: 1.5;
+}
+
+.real-stats {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: calc(var(--sat) + 190px);
+    width: auto;
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+}
+
+.real-bottles {
+    position: absolute;
+    left: 0;
+    top: 330px;
+    width: 100%;
+    height: 380px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0 20px;
+    z-index: 10;
+}
+
+.real-bottles-group {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.real-bottles-group img {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.1s ease;
+}
+
+.real-bottles-group:active img {
+    transform: scale(0.95);
+}
+
+/* 게이지 바 */
+.progress-bar-container {
+    position: absolute;
+    left: 28px;
+    right: 28px;
+    bottom: calc(var(--sab) + 80px);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    z-index: 5;
+}
+
+.progress-bar-bg {
+    flex: 1;
+    height: 32px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-bar-fill {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg,
+        #2d23e4 0%,
+        #4a3dff 50%,
+        #6b5eff 100%);
+    border-radius: 20px;
+    transition: width 0.3s ease-out;
+    box-shadow: 0 2px 8px rgba(45, 35, 228, 0.4);
+}
+
+.progress-label {
+    font-size: 16px;
+    font-weight: 700;
+    color: #2d23e4;
+    min-width: 40px;
+    text-align: right;
+}
+
+/* 클릭 피드백 애니메이션 */
+.click-feedback {
+    position: fixed;
+    font-size: 20px;
+    font-weight: 700;
+    color: #2d23e4;
+    pointer-events: none;
+    animation: floatUp 0.8s ease-out forwards;
+    z-index: 100;
+}
+
+@keyframes floatUp {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+}
+
+/* 페이드 아웃 애니메이션 */
+.fade-out {
+    animation: fadeOut 0.8s ease-out forwards;
+}
+
+@keyframes fadeOut {
+    0% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+}
+
+/* 새 문구 페이드 인 */
+.new-text {
+    position: absolute;
+    left: 28px;
+    right: 28px;
+    top: calc(var(--sat) + 184px);
+    text-align: center;
+    opacity: 0;
+    z-index: 5;
+}
+
+.new-text.fade-in {
+    animation: fadeIn 0.8s ease-in forwards;
+    animation-delay: 0.3s;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.new-text .main-question {
+    font-size: 23px;
+    font-weight: 700;
+    color: #000;
+    line-height: 1.5;
+}
+
+.new-text .sub-question {
+    font-size: 23px;
+    font-weight: 700;
+    color: #000;
+    line-height: 1.5;
+}
+
+/* 숨김 클래스 */
+.hidden {
+    display: none;
+}
+
+/* 게임 시작 화면 */
+.game-start-screen {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    z-index: 20;
+    opacity: 0;
+}
+
+.game-start-screen.show {
+    display: flex;
+    animation: fadeIn 0.8s ease-in forwards;
+}
+
+.game-start-text {
+    position: absolute;
+    left: 28px;
+    right: 28px;
+    top: calc(var(--sat) + 184px);
+    text-align: center;
+}
+
+.game-start-text .line1 {
+    font-size: 23px;
+    font-weight: 700;
+    color: #000;
+    line-height: 1.5;
+}
+
+.game-start-text .line2 {
+    font-size: 23px;
+    font-weight: 700;
+    color: #000;
+    line-height: 1.5;
+}
+
+.game-start-image {
+    position: absolute;
+    left: 0;
+    top: 280px;
+    width: 100%;
+    height: 380px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.game-start-image img {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.game-start-button {
+    display: none;
+}
+
+.game-start-cta {
+    width: 100%;
+    height: 56px;
+    background: #2d23e4;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+/* 실제 게임 화면 */
+.actual-game-screen {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    display: none;
+    z-index: 30;
+    opacity: 0;
+    pointer-events: none;
+}
+
+.actual-game-screen.show {
+    display: block;
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.game-instruction {
+    position: absolute;
+    left: 28px;
+    right: 28px;
+    top: calc(var(--sat) + 167px);
+    text-align: center;
+}
+
+.game-instruction .text {
+    font-size: 23px;
+    font-weight: 700;
+    color: #000;
+    line-height: 1.5;
+}
+
+.game-bottles-container {
+    position: absolute;
+    left: 0;
+    top: 280px;
+    width: 100%;
+    height: 380px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0 20px;
+}
+
+.game-bottles {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.game-bottles img {
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    object-fit: contain;
+    transition: transform 0.1s ease;
+}
+
+.game-bottles:active img {
+    transform: scale(0.95);
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>오이시</title>
+    <link rel="stylesheet" href="./style.css">
+  </head>
+  <body>
+<div class="container">
+    <!-- 배경 -->
+    <div class="background-image"></div>
+
+    <!-- 컨텐츠 -->
+    <div class="content" id="content">
+        <div class="badge">크로스샵 이벤트</div>
+        <div class="text-area">
+            <div class="title">게임하고 OISHI 그린티 음료 받기</div>
+            <div class="period">이벤트 기간: 4월 15일 ~ N월 30일</div>
+        </div>
+    </div>
+
+    <!-- 메인 이미지 (음료수 4병) -->
+    <div class="main-image" id="bottles-container">
+        <div class="bottles" id="bottles-individual">
+            <div class="bottle"></div>
+            <div class="bottle"></div>
+            <div class="bottle"></div>
+            <div class="bottle"></div>
+        </div>
+        <div class="bottles-combined" id="bottles-combined">
+            <img src="https://s3cross-static-design.s3.ap-northeast-2.amazonaws.com/App_resource/shop+tf/click+game/click_image.png" alt="OISHI 음료">
+        </div>
+    </div>
+
+    <!-- 새 문구 (처음엔 숨김) -->
+    <div class="new-text" id="new-text">
+        <div class="main-question">사진을 빠르게 클릭하는 게임!</div>
+        <div class="sub-question">연습게임을 해볼까요?</div>
+    </div>
+
+    <!-- 게임 시작 화면 (처음엔 숨김) -->
+    <div class="game-start-screen" id="game-start-screen">
+        <div class="game-start-text">
+            <div class="line1">OISHI 음료를 빠르게</div>
+            <div class="line2">클릭하는 게임이에요.</div>
+        </div>
+        <div class="game-start-image">
+            <img src="https://s3cross-static-design.s3.ap-northeast-2.amazonaws.com/App_resource/shop+tf/click+game/cut_image_group.png" alt="OISHI 음료">
+        </div>
+    </div>
+
+    <!-- 실제 게임 화면 콘텐츠만 (버튼 제외) -->
+    <div class="actual-game-screen" id="actual-game-screen">
+        <div class="game-instruction" id="game-instruction">
+            <div class="text">아래의 OISHI 음료를</div>
+            <div class="text">눌러보세요.</div>
+        </div>
+        <div class="game-bottles-container">
+            <div class="game-bottles" onclick="clickBottle()">
+                <img src="https://s3cross-static-design.s3.ap-northeast-2.amazonaws.com/App_resource/shop+tf/click+game/cut_image_group.png" alt="OISHI 음료">
+            </div>
+        </div>
+    </div>
+
+    <!-- 연습게임 화면 -->
+    <div class="practice-game-screen" id="practice-game-screen">
+        <div class="practice-title">
+            <div class="line1">5초 안에</div>
+            <div class="line2">사진을 빠르게 클릭해보세요</div>
+        </div>
+        <div class="practice-stats">
+            <div class="stat-box">
+                <span class="stat-label">횟수</span>
+                <span class="stat-value" id="click-count">0/10</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-label">시간</span>
+                <span class="stat-value" id="timer">5.0 sec</span>
+            </div>
+        </div>
+        <div class="practice-bottles">
+            <div class="practice-bottles-group" onclick="practiceClick()">
+                <img src="https://s3cross-static-design.s3.ap-northeast-2.amazonaws.com/App_resource/shop+tf/click+game/cut_image_group.png" alt="OISHI 음료">
+            </div>
+        </div>
+    </div>
+
+    <!-- 실제 게임 화면 -->
+    <div class="real-game-screen" id="real-game-screen">
+        <div class="real-title">
+            <div class="line1">10초 안에</div>
+            <div class="line2">사진을 빠르게 클릭해보세요</div>
+        </div>
+        <div class="real-stats">
+            <div class="stat-box">
+                <span class="stat-label">횟수</span>
+                <span class="stat-value" id="real-click-count">0</span>
+            </div>
+            <div class="stat-box">
+                <span class="stat-label">시간</span>
+                <span class="stat-value" id="real-timer">10.0 sec</span>
+            </div>
+        </div>
+        
+        <!-- 게이지 바 -->
+        <div class="progress-bar-container">
+            <div class="progress-bar-bg">
+                <div class="progress-bar-fill" id="progress-bar"></div>
+            </div>
+            <div class="progress-label">50회</div>
+        </div>
+        
+        <div class="real-bottles">
+            <div class="real-bottles-group" onclick="realGameClick(event)">
+                <img src="https://s3cross-static-design.s3.ap-northeast-2.amazonaws.com/App_resource/shop+tf/click+game/cut_image_group.png" alt="OISHI 음료">
+            </div>
+        </div>
+    </div>
+
+    <!-- 하단 버튼 -->
+    <div class="bottom">
+        <div class="button-container">
+            <button class="cta-button" id="main-button" onclick="handleButtonClick()">게임 해볼래요</button>
+        </div>
+    </div>
+</div>
+    <script src="./script.js"></script>
+  </body>
+</html>
