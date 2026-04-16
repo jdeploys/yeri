@@ -2,6 +2,16 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    -webkit-tap-highlight-color: transparent;
+}
+
+:root {
+    --sat: env(safe-area-inset-top, 0px);
+    --sab: env(safe-area-inset-bottom, 0px);
+}
+
+html {
+    height: 100%;
 }
 
 body {
@@ -12,11 +22,17 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
+    min-height: 100dvh;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    user-select: none;
+    touch-action: manipulation;
 }
 
 .container {
-    width: 375px;
-    height: 812px;
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
     background: #ffa659;
     position: relative;
     overflow: hidden;
@@ -39,8 +55,8 @@ body {
 .content {
     position: absolute;
     left: 28px;
-    top: 80px;
-    width: 318px;
+    right: 28px;
+    top: calc(var(--sat) + 80px);
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -87,7 +103,7 @@ body {
     position: absolute;
     left: 0;
     top: 280px;
-    width: 375px;
+    width: 100%;
     height: 380px;
     display: flex;
     align-items: flex-start;
@@ -150,6 +166,7 @@ body {
     bottom: 0;
     left: 0;
     right: 0;
+    padding-bottom: var(--sab);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -199,8 +216,8 @@ body {
     position: absolute;
     left: 0;
     top: 0;
-    width: 375px;
-    height: 812px;
+    width: 100%;
+    height: 100%;
     display: none;
     z-index: 30;
     opacity: 0;
@@ -214,8 +231,8 @@ body {
 .practice-title {
     position: absolute;
     left: 28px;
-    top: 100px;
-    width: 318px;
+    right: 28px;
+    top: calc(var(--sat) + 100px);
     text-align: center;
 }
 
@@ -237,7 +254,7 @@ body {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: 190px;
+    top: calc(var(--sat) + 190px);
     width: auto;
     display: flex;
     flex-direction: row;
@@ -245,8 +262,8 @@ body {
 }
 
 .stat-box {
-    background: linear-gradient(135deg, 
-        rgba(255, 200, 120, 0.4) 0%, 
+    background: linear-gradient(135deg,
+        rgba(255, 200, 120, 0.4) 0%,
         rgba(255, 170, 100, 0.3) 100%);
     border-radius: 16px;
     padding: 20px;
@@ -280,7 +297,7 @@ body {
     position: absolute;
     left: 0;
     top: 330px;
-    width: 375px;
+    width: 100%;
     height: 380px;
     display: flex;
     align-items: flex-start;
@@ -314,8 +331,8 @@ body {
     position: absolute;
     left: 0;
     top: 0;
-    width: 375px;
-    height: 812px;
+    width: 100%;
+    height: 100%;
     display: none;
     z-index: 30;
     opacity: 0;
@@ -329,8 +346,8 @@ body {
 .real-title {
     position: absolute;
     left: 28px;
-    top: 100px;
-    width: 318px;
+    right: 28px;
+    top: calc(var(--sat) + 100px);
     text-align: center;
 }
 
@@ -352,7 +369,7 @@ body {
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    top: 190px;
+    top: calc(var(--sat) + 190px);
     width: auto;
     display: flex;
     flex-direction: row;
@@ -363,7 +380,7 @@ body {
     position: absolute;
     left: 0;
     top: 330px;
-    width: 375px;
+    width: 100%;
     height: 380px;
     display: flex;
     align-items: flex-start;
@@ -397,8 +414,8 @@ body {
 .progress-bar-container {
     position: absolute;
     left: 28px;
-    bottom: 80px;
-    width: 318px;
+    right: 28px;
+    bottom: calc(var(--sab) + 80px);
     display: flex;
     align-items: center;
     gap: 12px;
@@ -420,9 +437,9 @@ body {
     top: 0;
     height: 100%;
     width: 0%;
-    background: linear-gradient(90deg, 
-        #2d23e4 0%, 
-        #4a3dff 50%, 
+    background: linear-gradient(90deg,
+        #2d23e4 0%,
+        #4a3dff 50%,
         #6b5eff 100%);
     border-radius: 20px;
     transition: width 0.3s ease-out;
@@ -439,7 +456,7 @@ body {
 
 /* 클릭 피드백 애니메이션 */
 .click-feedback {
-    position: absolute;
+    position: fixed;
     font-size: 20px;
     font-weight: 700;
     color: #2d23e4;
@@ -457,23 +474,6 @@ body {
         opacity: 0;
         transform: translateY(-50px);
     }
-}
-
-/* 홈 인디케이터 */
-.home-indicator {
-    width: 375px;
-    height: 34px;
-    display: flex;
-    justify-content: center;
-    align-items: flex-end;
-    padding-bottom: 8px;
-}
-
-.home-indicator-bar {
-    width: 146px;
-    height: 5px;
-    background: #000;
-    border-radius: 100px;
 }
 
 /* 페이드 아웃 애니메이션 */
@@ -496,8 +496,8 @@ body {
 .new-text {
     position: absolute;
     left: 28px;
-    top: 184px;
-    width: 318px;
+    right: 28px;
+    top: calc(var(--sat) + 184px);
     text-align: center;
     opacity: 0;
     z-index: 5;
@@ -543,8 +543,8 @@ body {
     position: absolute;
     left: 0;
     top: 0;
-    width: 375px;
-    height: 812px;
+    width: 100%;
+    height: 100%;
     display: none;
     flex-direction: column;
     align-items: center;
@@ -560,8 +560,8 @@ body {
 .game-start-text {
     position: absolute;
     left: 28px;
-    top: 184px;
-    width: 318px;
+    right: 28px;
+    top: calc(var(--sat) + 184px);
     text-align: center;
 }
 
@@ -583,7 +583,7 @@ body {
     position: absolute;
     left: 0;
     top: 280px;
-    width: 375px;
+    width: 100%;
     height: 380px;
     display: flex;
     align-items: flex-start;
@@ -620,8 +620,8 @@ body {
     position: absolute;
     left: 0;
     top: 0;
-    width: 375px;
-    height: 812px;
+    width: 100%;
+    height: 100%;
     display: none;
     z-index: 30;
     opacity: 0;
@@ -637,8 +637,8 @@ body {
 .game-instruction {
     position: absolute;
     left: 28px;
-    top: 167px;
-    width: 318px;
+    right: 28px;
+    top: calc(var(--sat) + 167px);
     text-align: center;
 }
 
@@ -653,7 +653,7 @@ body {
     position: absolute;
     left: 0;
     top: 280px;
-    width: 375px;
+    width: 100%;
     height: 380px;
     display: flex;
     align-items: flex-start;
